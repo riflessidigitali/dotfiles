@@ -19,7 +19,7 @@ on:
 
 env:
   PROJECT_ORG: riflessidigitali
-  PRIMARY_CODEOWNER: "{owners[0].toString()}"
+  PRIMARY_CODEOWNER: ""
   PROJECT_IDS: 2
 
 jobs:
