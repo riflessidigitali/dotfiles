@@ -18,9 +18,10 @@ on:
       - reopened
 
 env:
-  PROJECT_ORG: riflessidigitali
-  PRIMARY_CODEOWNER: ""
-  PROJECT_ID: 2
+  PROJECT_ORG: caseproof
+  PRIMARY_CODEOWNER: eri-trabiccolo
+  PROJECT_ID: 1
+  ISSUE_MAN_PAT: "IP_ISSUE_MANAGE_PAT"
 
 jobs:
 
@@ -35,7 +36,7 @@ jobs:
       - name: Add Issue to Project
         uses: leonsteinhaeuser/project-beta-automations@v2.2.1
         with:
-          gh_token: ${{ secrets.CSPF_PKGS_WORKFLOW_DISPATCH_PAT }}
+          gh_token: ${{ secrets.CSPF_PROJECT_MANAGE_PAT }}
           organization: ${{ env.PROJECT_ORG }}
           project_id: ${{ env.PROJECT_ID }}
           resource_node_id: ${{ github.event.issue.node_id }}
@@ -77,5 +78,5 @@ jobs:
       - name: Assign issue
         uses: pozil/auto-assign-issue@v1
         with:
-          repo-token: ${{ secrets.CSPF_PKGS_WORKFLOW_DISPATCH_PAT }}
+          repo-token: ${{ secrets[ISSUE_MAN_PAT] }}
           assignees: ${{ env.PRIMARY_CODEOWNER }}
